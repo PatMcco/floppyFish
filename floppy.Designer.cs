@@ -93,7 +93,7 @@
             // obstacleBot
             // 
             this.obstacleBot.Image = ((System.Drawing.Image)(resources.GetObject("obstacleBot.Image")));
-            this.obstacleBot.Location = new System.Drawing.Point(370, 443);
+            this.obstacleBot.Location = new System.Drawing.Point(424, 523);
             this.obstacleBot.Name = "obstacleBot";
             this.obstacleBot.Size = new System.Drawing.Size(113, 328);
             this.obstacleBot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -103,7 +103,7 @@
             // obstacleTop
             // 
             this.obstacleTop.Image = ((System.Drawing.Image)(resources.GetObject("obstacleTop.Image")));
-            this.obstacleTop.Location = new System.Drawing.Point(370, -99);
+            this.obstacleTop.Location = new System.Drawing.Point(438, -29);
             this.obstacleTop.Name = "obstacleTop";
             this.obstacleTop.Size = new System.Drawing.Size(121, 350);
             this.obstacleTop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -128,7 +128,7 @@
             // ground1
             // 
             this.ground1.Image = ((System.Drawing.Image)(resources.GetObject("ground1.Image")));
-            this.ground1.Location = new System.Drawing.Point(322, 645);
+            this.ground1.Location = new System.Drawing.Point(323, 645);
             this.ground1.Name = "ground1";
             this.ground1.Size = new System.Drawing.Size(337, 110);
             this.ground1.TabIndex = 6;
@@ -156,7 +156,7 @@
             // obstacleBot2
             // 
             this.obstacleBot2.Image = ((System.Drawing.Image)(resources.GetObject("obstacleBot2.Image")));
-            this.obstacleBot2.Location = new System.Drawing.Point(773, 513);
+            this.obstacleBot2.Location = new System.Drawing.Point(849, 475);
             this.obstacleBot2.Name = "obstacleBot2";
             this.obstacleBot2.Size = new System.Drawing.Size(112, 328);
             this.obstacleBot2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -166,7 +166,7 @@
             // obstacleTop2
             // 
             this.obstacleTop2.Image = ((System.Drawing.Image)(resources.GetObject("obstacleTop2.Image")));
-            this.obstacleTop2.Location = new System.Drawing.Point(773, -29);
+            this.obstacleTop2.Location = new System.Drawing.Point(860, -61);
             this.obstacleTop2.Name = "obstacleTop2";
             this.obstacleTop2.Size = new System.Drawing.Size(119, 350);
             this.obstacleTop2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -215,9 +215,13 @@
             this.Controls.Add(this.obstacleTop);
             this.Controls.Add(this.obstacleBot);
             this.Controls.Add(this.fishPlayer);
+            this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "Floppy Fish";
+            this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.helpButton_Clicked);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.onKeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.fishPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.obstacleBot)).EndInit();

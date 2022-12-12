@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
+using Random = System.Random;
+using System.ComponentModel;
 
 namespace floppyFish
 {
@@ -16,32 +10,38 @@ namespace floppyFish
     {
 
         //public vars
-        int obstacleSpeed = 4;
-        int gravity = 2;
+        int obstacleSpeed = 3;
+        int gravity = 3;
         int score = 0;
         bool gameStart = false;
         bool endGame = false;
-        bool isMuted = false;
-        SoundPlayer sp = new SoundPlayer();
-
+        public SoundPlayer sp = new SoundPlayer();
+        
 
         public Form1()
         {
             InitializeComponent();
-            sp.SoundLocation = "music.wav";
+            sp.Stream = Properties.Resources.music;
+            int ob1 = obstacleTop.Location.Y;
+            int ob2 = obstacleBot.Location.Y;
+            int ob3 = obstacleTop2.Location.Y;
+            int ob4 = obstacleBot2.Location.Y;
+            //lowest vals for first obstacles is -20 for top and 484 for bot
+            //size of pipe is 350 so gap should stay around 150 units
+            //lowest vals for second obstacles is 484 and 350 for bot
+
         }
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
+
             //beginning of game
             if (!gameStart)
             {
                 sp.PlayLooping();
                 gameTimer.Stop();
                 gameOver_txt.Text = "Press Space to Start";
-                
             }
-
 
             //changes players margin according to gravity
             fishPlayer.Top += gravity;
@@ -58,30 +58,37 @@ namespace floppyFish
             //allows the obstacles to keep spawning after going out of bounds
             if (obstacleBot.Left < 25)
             {
+                obstacleBot.Top = RandomNumber(300,450 );
                 obstacleBot.Left = 950;
                 score++;
             }
-
+            
             if (obstacleTop.Left < 25)
             {
+                obstacleTop.Top = obstacleBot.Top - 445;
                 obstacleTop.Left = 950;
                 
             }
             if (obstacleBot2.Left < 25)
             {
+                obstacleBot2.Top = RandomNumber(300, 450);
                 obstacleBot2.Left = 950;
                 score++;
             }
 
             if (obstacleTop2.Left < 25)
             {
+                obstacleTop2.Top = obstacleBot2.Top - 445;
                 obstacleTop2.Left = 950;
             }
             //increases difficulty as score increases
-            if (score >= 15)
+            if (score >= 4)
+            {
+                obstacleSpeed = 5;
+            }
+            if(score >= 20)
             {
                 obstacleSpeed = 6;
-                
             }
             if(score >= 30)
             {
@@ -89,18 +96,16 @@ namespace floppyFish
             }
             if(score >= 50)
             {
-                obstacleSpeed = 10;
+                obstacleSpeed = 9;
             }
             
 
             //win condition
-            if (score == 75)
+            if (score == 60)
             {
                 endGame = true;
                 gameTimer.Stop();
                 gameOver_txt.Text = "You Win!\nPress Enter to Restart";
-
-
             }
 
 
@@ -125,21 +130,33 @@ namespace floppyFish
             gameTimer.Stop();
             gameOver_txt.Text = " Game Over! \nEnter to Restart";
             endGame = true;
-            
-            
         }
 
-        private void onKeyDown(object sender, KeyEventArgs e)
+        public void onKeyDown(object sender, KeyEventArgs e)
         {
             //fly down
             if (e.KeyCode == Keys.Down)
             {
-                gravity = 2;
+                if (score >= 10)
+                {
+                    gravity = 3;
+                }
+                else
+                {
+                    gravity = 2;
+                }
             }
             //fly up
             if (e.KeyCode == Keys.Up)
             {
-                gravity = -2;
+                if (score >= 10)
+                {
+                    gravity = -3;
+                }
+                else
+                {
+                    gravity = -2;
+                }
             }
             //start or pause game
             if (e.KeyCode == Keys.Space)
@@ -158,14 +175,18 @@ namespace floppyFish
                         gameOver_txt.Text = "";
                     }
                 }
-
             }
             //restart game
             if (e.KeyCode == Keys.Enter)
             {
                 Application.Restart();                
             }
-            
+            //quit game
+            if (e.KeyCode == Keys.Escape)
+            {
+                Application.Exit();
+            }
+
             //mute and unmute
             if (e.KeyCode == Keys.M)
             {
@@ -180,6 +201,20 @@ namespace floppyFish
                     muteBtn.Text = "Mute";
                 }
             }
+        }
+        //get random number for moving obstacles
+        int RandomNumber(int min, int max)
+        {
+            Random random = new Random();
+            return random.Next(min, max);
+        }
+
+        private void helpButton_Clicked(object sender, CancelEventArgs e)
+        {
+            MessageBox.Show("Pat McCormick - W0183220 " +
+                            "Use the up and down arrow keys to move the fish up and down. \n\nAvoid the obstacles and try to get the highest score possible." +
+                            " \n\nPress Space to start or pause the game. \n\nPress Enter to restart the game. " +
+                            "\n\nPress Escape to quit the game. \n\nPress M to mute or unmute the music. Good Luck!");
         }
     }
 }
