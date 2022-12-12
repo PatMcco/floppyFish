@@ -5,8 +5,10 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace floppyFish
 {
@@ -15,20 +17,32 @@ namespace floppyFish
 
         //public vars
         int obstacleSpeed = 4;
-        int gravity = 1;
+        int gravity = 2;
         int score = 0;
+        bool gameStart = false;
+        bool endGame = false;
+        bool isMuted = false;
+        SoundPlayer sp = new SoundPlayer();
+
 
         public Form1()
         {
             InitializeComponent();
+            sp.SoundLocation = "music.wav";
         }
-        public void Form1_Load(object sender, EventArgs e)
-        {
-            InitializeComponent();
-        }
+
         private void gameTimer_Tick(object sender, EventArgs e)
         {
-            
+            //beginning of game
+            if (!gameStart)
+            {
+                sp.PlayLooping();
+                gameTimer.Stop();
+                gameOver_txt.Text = "Press Space to Start";
+                
+            }
+
+
             //changes players margin according to gravity
             fishPlayer.Top += gravity;
 
@@ -51,7 +65,7 @@ namespace floppyFish
             if (obstacleTop.Left < 25)
             {
                 obstacleTop.Left = 950;
-                score++;
+                
             }
             if (obstacleBot2.Left < 25)
             {
@@ -62,7 +76,31 @@ namespace floppyFish
             if (obstacleTop2.Left < 25)
             {
                 obstacleTop2.Left = 950;
-                score++;
+            }
+            //increases difficulty as score increases
+            if (score >= 15)
+            {
+                obstacleSpeed = 6;
+                
+            }
+            if(score >= 30)
+            {
+                obstacleSpeed = 8;
+            }
+            if(score >= 50)
+            {
+                obstacleSpeed = 10;
+            }
+            
+
+            //win condition
+            if (score == 75)
+            {
+                endGame = true;
+                gameTimer.Stop();
+                gameOver_txt.Text = "You Win!\nPress Enter to Restart";
+
+
             }
 
 
@@ -83,8 +121,10 @@ namespace floppyFish
         private void gameOver()
         {
             //end game function, if player dies it stops the timer and shows game over message
+            gameStart = false;
             gameTimer.Stop();
-            gameOver_txt.Text = " Game Over!";
+            gameOver_txt.Text = " Game Over! \nEnter to Restart";
+            endGame = true;
             
             
         }
@@ -104,17 +144,41 @@ namespace floppyFish
             //start or pause game
             if (e.KeyCode == Keys.Space)
             {
-                if (gameTimer.Enabled)
+                if (!endGame)
                 {
-                    gameTimer.Stop();
-                    gameOver_txt.Text = "Paused";
+                    if (gameTimer.Enabled)
+                    {
+                        gameTimer.Stop();
+                        gameOver_txt.Text = "Paused";
+                    }
+                    else
+                    {
+                        gameTimer.Start();
+                        gameStart = true;
+                        gameOver_txt.Text = "";
+                    }
+                }
+
+            }
+            //restart game
+            if (e.KeyCode == Keys.Enter)
+            {
+                Application.Restart();                
+            }
+            
+            //mute and unmute
+            if (e.KeyCode == Keys.M)
+            {
+                if (muteBtn.Text == "Mute")
+                {
+                    sp.Stop();
+                    muteBtn.Text = "Unmute";
                 }
                 else
                 {
-                    gameTimer.Start();
-                    gameOver_txt.Text = "";
+                    sp.PlayLooping();
+                    muteBtn.Text = "Mute";
                 }
-
             }
         }
     }

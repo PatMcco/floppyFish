@@ -43,6 +43,7 @@
             this.obstacleBot2 = new System.Windows.Forms.PictureBox();
             this.obstacleTop2 = new System.Windows.Forms.PictureBox();
             this.gameOver_txt = new System.Windows.Forms.Label();
+            this.muteBtn = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.fishPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.obstacleBot)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.obstacleTop)).BeginInit();
@@ -81,7 +82,7 @@
             // 
             this.fishPlayer.Image = ((System.Drawing.Image)(resources.GetObject("fishPlayer.Image")));
             this.fishPlayer.InitialImage = ((System.Drawing.Image)(resources.GetObject("fishPlayer.InitialImage")));
-            this.fishPlayer.Location = new System.Drawing.Point(102, 290);
+            this.fishPlayer.Location = new System.Drawing.Point(103, 251);
             this.fishPlayer.Margin = new System.Windows.Forms.Padding(0);
             this.fishPlayer.Name = "fishPlayer";
             this.fishPlayer.Size = new System.Drawing.Size(151, 70);
@@ -92,20 +93,20 @@
             // obstacleBot
             // 
             this.obstacleBot.Image = ((System.Drawing.Image)(resources.GetObject("obstacleBot.Image")));
-            this.obstacleBot.Location = new System.Drawing.Point(406, 444);
+            this.obstacleBot.Location = new System.Drawing.Point(370, 443);
             this.obstacleBot.Name = "obstacleBot";
             this.obstacleBot.Size = new System.Drawing.Size(113, 328);
-            this.obstacleBot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.obstacleBot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.obstacleBot.TabIndex = 3;
             this.obstacleBot.TabStop = false;
             // 
             // obstacleTop
             // 
             this.obstacleTop.Image = ((System.Drawing.Image)(resources.GetObject("obstacleTop.Image")));
-            this.obstacleTop.Location = new System.Drawing.Point(416, -102);
+            this.obstacleTop.Location = new System.Drawing.Point(370, -99);
             this.obstacleTop.Name = "obstacleTop";
             this.obstacleTop.Size = new System.Drawing.Size(121, 350);
-            this.obstacleTop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.obstacleTop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.obstacleTop.TabIndex = 4;
             this.obstacleTop.TabStop = false;
             // 
@@ -155,20 +156,20 @@
             // obstacleBot2
             // 
             this.obstacleBot2.Image = ((System.Drawing.Image)(resources.GetObject("obstacleBot2.Image")));
-            this.obstacleBot2.Location = new System.Drawing.Point(726, 509);
+            this.obstacleBot2.Location = new System.Drawing.Point(773, 513);
             this.obstacleBot2.Name = "obstacleBot2";
             this.obstacleBot2.Size = new System.Drawing.Size(112, 328);
-            this.obstacleBot2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.obstacleBot2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.obstacleBot2.TabIndex = 10;
             this.obstacleBot2.TabStop = false;
             // 
             // obstacleTop2
             // 
             this.obstacleTop2.Image = ((System.Drawing.Image)(resources.GetObject("obstacleTop2.Image")));
-            this.obstacleTop2.Location = new System.Drawing.Point(719, -27);
+            this.obstacleTop2.Location = new System.Drawing.Point(773, -29);
             this.obstacleTop2.Name = "obstacleTop2";
             this.obstacleTop2.Size = new System.Drawing.Size(119, 350);
-            this.obstacleTop2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.obstacleTop2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.obstacleTop2.TabIndex = 11;
             this.obstacleTop2.TabStop = false;
             // 
@@ -177,17 +178,31 @@
             this.gameOver_txt.AutoSize = true;
             this.gameOver_txt.Font = new System.Drawing.Font("MV Boli", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gameOver_txt.ForeColor = System.Drawing.Color.LightSalmon;
-            this.gameOver_txt.Location = new System.Drawing.Point(370, 351);
+            this.gameOver_txt.Location = new System.Drawing.Point(266, 350);
             this.gameOver_txt.Name = "gameOver_txt";
             this.gameOver_txt.Size = new System.Drawing.Size(0, 49);
             this.gameOver_txt.TabIndex = 12;
+            // 
+            // muteBtn
+            // 
+            this.muteBtn.AutoSize = true;
+            this.muteBtn.BackColor = System.Drawing.Color.Transparent;
+            this.muteBtn.Font = new System.Drawing.Font("MV Boli", 28.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.muteBtn.ForeColor = System.Drawing.Color.Yellow;
+            this.muteBtn.Location = new System.Drawing.Point(762, 682);
+            this.muteBtn.Name = "muteBtn";
+            this.muteBtn.Size = new System.Drawing.Size(149, 62);
+            this.muteBtn.TabIndex = 13;
+            this.muteBtn.Text = "Mute";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(991, 753);
+            this.Controls.Add(this.muteBtn);
             this.Controls.Add(this.scoreLabel);
             this.Controls.Add(this.scoreText);
             this.Controls.Add(this.ground0);
@@ -233,6 +248,7 @@
         private System.Windows.Forms.PictureBox obstacleBot2;
         private System.Windows.Forms.PictureBox obstacleTop2;
         private System.Windows.Forms.Label gameOver_txt;
+        private System.Windows.Forms.Label muteBtn;
     }
 }
 

@@ -117,14 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="fishPlayer.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="fishPlayer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAJUAAABFCAYAAABDnKRgAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAASlRJREFUeF7tvQV0Hde5Pf7kOCnTr+8VXtM2MTOzLAstZmbWvdIVMzOzZItloUWW
+        vQAADr0BR/uQrQAASlRJREFUeF7tvQV0Hde5Pf7kOCnTr+8VXtM2MTOzLAstZmbWvdIVMzOzZItloUWW
         xczMstggsuzEsZ3kvTblkK39/87c6yRtCmmf06brn7PWt2Y0POfss/f+zswd/ceX5cvyZfk3Ko6utmI8
         gaWYLd/0BTt702/yBKZbRau+LF+Wv6/4+TuKeXnz/8vR2eoE38HstKOz2RlLa51kKxsdZTc38+97eFi+
         4Ohk9n0Hgemrji4WXxXt9mX5sny6+Pq7bPXzd/p6YKDjK/7+AlcnZ4t5Wzv9Db69/ry9g94tGzv1KXd3
@@ -447,7 +444,7 @@
   <data name="fishPlayer.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAJUAAABFCAYAAABDnKRgAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAASlRJREFUeF7tvQV0Hde5Pf7kOCnTr+8VXtM2MTOzLAstZmbWvdIVMzOzZItloUWW
+        vQAADr0BR/uQrQAASlRJREFUeF7tvQV0Hde5Pf7kOCnTr+8VXtM2MTOzLAstZmbWvdIVMzOzZItloUWW
         xczMstggsuzEsZ3kvTblkK39/87c6yRtCmmf06brn7PWt2Y0POfss/f+zswd/ceX5cvyZfk3Ko6utmI8
         gaWYLd/0BTt702/yBKZbRau+LF+Wv6/4+TuKeXnz/8vR2eoE38HstKOz2RlLa51kKxsdZTc38+97eFi+
         4Ohk9n0Hgemrji4WXxXt9mX5sny6+Pq7bPXzd/p6YKDjK/7+AlcnZ4t5Wzv9Db69/ry9g94tGzv1KXd3
