@@ -11,7 +11,7 @@ namespace floppyFish
 
         //public vars
         int obstacleSpeed = 3;
-        int gravity = 3;
+        int gravity = 2;
         int score = 0;
         bool gameStart = false;
         bool endGame = false;
@@ -40,7 +40,11 @@ namespace floppyFish
             {
                 sp.PlayLooping();
                 gameTimer.Stop();
-                gameOver_txt.Text = "Press Space to Start";
+                gameOver_txt.Text = "Press Space to Start\n\n" +
+                    "Use Up and Down arrow keys to control your fish!." +
+                    "\n\n Don't hit any obstacles and reach level 60 to win!\n\n" +
+                    "The difficulty scales up as you progress!\n\n" +
+                    "Press enter to restart and M to mute the music.";
             }
 
             //changes players margin according to gravity
@@ -214,7 +218,7 @@ namespace floppyFish
             MessageBox.Show("Pat McCormick - W0183220 " +
                             "Use the up and down arrow keys to move the fish up and down. \n\nAvoid the obstacles and try to get the highest score possible." +
                             " \n\nPress Space to start or pause the game. \n\nPress Enter to restart the game. " +
-                            "\n\nPress Escape to quit the game. \n\nPress M to mute or unmute the music. Good Luck!");
+                            "\n\nPress Escape to quit the game. \n\nPress M to mute or unmute the music. Good Luck!\n\n");
         }
     }
 }

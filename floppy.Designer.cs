@@ -176,12 +176,14 @@
             // gameOver_txt
             // 
             this.gameOver_txt.AutoSize = true;
-            this.gameOver_txt.Font = new System.Drawing.Font("MV Boli", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gameOver_txt.BackColor = System.Drawing.Color.Gray;
+            this.gameOver_txt.Font = new System.Drawing.Font("MV Boli", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gameOver_txt.ForeColor = System.Drawing.Color.LightSalmon;
-            this.gameOver_txt.Location = new System.Drawing.Point(266, 350);
+            this.gameOver_txt.Location = new System.Drawing.Point(133, 203);
             this.gameOver_txt.Name = "gameOver_txt";
-            this.gameOver_txt.Size = new System.Drawing.Size(0, 49);
+            this.gameOver_txt.Size = new System.Drawing.Size(0, 29);
             this.gameOver_txt.TabIndex = 12;
+            this.gameOver_txt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // muteBtn
             // 
